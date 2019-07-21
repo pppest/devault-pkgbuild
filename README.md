@@ -1,4 +1,4 @@
-# DeVault wallet AUR PKGBUILDS
+# DeVault wallet AUR PKGBUILDs
 
 NOT COMPLETELY READY
 seems some qt dependecies needs to be added
