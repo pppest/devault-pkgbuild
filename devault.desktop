@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=DeVault-QT
+Comment=QT wallet for the DeVault blockchain
+Exec="/usr/bin/devault-qt" %U
+Terminal=false
+Type=Application
+Icon=devault
+Categories=Utility;
