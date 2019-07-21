@@ -1,8 +1,8 @@
-# Maintainer: Pest <forum@devault.cc>
+# Maintainer: Pest <ppest@protonmail.com>
 pkgname=devault
 pkgver=1.0.5
 pkgrel=1
-pkgdesc="QT Wallet for the dvt blockchain"
+pkgdesc="Desktop wallet for the dvt blockchain"
 arch=('x86_64')
 license=('MIT')
 url="https://github.com/devaultcrypto/"
