@@ -11,7 +11,7 @@ source=("https://github.com/devaultcrypto/devault/archive/v1.0.5.tar.gz"
         "devault.png"
         "LICENSE"
        )
-depends=('boost-libs' 'qt5-base' 'qrencode' 'libevent' 'zeromq' 'miniupnpc')
+depends=('boost-libs' 'qt5-base' 'qrencode' 'libevent' 'zeromq' 'miniupnpc' "hicolor-icon-theme")
 makedepends=('python' 'libevent' 'git' 'boost' 'libsodium' ) 
 build() {
 	cd "$srcdir/$pkgname-$pkgver"
