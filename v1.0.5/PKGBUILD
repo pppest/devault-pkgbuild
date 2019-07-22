@@ -10,7 +10,7 @@ source=("https://github.com/devaultcrypto/devault/archive/v$pkgver.tar.gz")
 depends=('boost-libs' 'qt5-base' 'qrencode' 'zeromq' 'miniupnpc' "hicolor-icon-theme" 'libevent')
 makedepends=('python' 'boost')
 build() {
- cd "$srcdir/$pkgname-$pkgver"
+  cd "$srcdir/$pkgname-$pkgver"
   ./autogen.sh
   ./configure --prefix=/usr/
   make
