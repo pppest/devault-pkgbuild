@@ -18,7 +18,7 @@ build() {
 	./autogen.sh
 	sed -i 's+/usr/local+/usr/+g' configure
 	./configure
-	make -j4
+	make
 }
 package() {
   cd "$srcdir/$pkgname-$pkgver"
