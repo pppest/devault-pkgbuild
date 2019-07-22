@@ -20,8 +20,8 @@ package() {
   make DESTDIR="$pkgdir/" install
   install -d "$pkgdir/usr/share/applications" "$pkgdir/usr/share/icons/hicolor/128x128/apps" \
   "$pkgdir/usr/share/licenses/$pkgname"
-  cp "$srcdir/$pkgname-$pkgver/contrib/debian/devault-qt.desktop" "$pkgdir/usr/share/applications/"
-  cp "$srcdir/$pkgname-$pkgver/share/pixmaps/devault-128.png" "$pkgdir/usr/share/icons/hicolor/128x128/apps/"
+  install "$srcdir/$pkgname-$pkgver/contrib/debian/devault-qt.desktop" "$pkgdir/usr/share/applications/"
+  install "$srcdir/$pkgname-$pkgver/share/pixmaps/devault-128.png" "$pkgdir/usr/share/icons/hicolor/128x128/apps/"
   install -m644 COPYING  "${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
  }
 md5sums=('9ca9b2a3b0e0aeafdb5f974c2004ccac')
