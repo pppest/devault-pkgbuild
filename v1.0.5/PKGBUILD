@@ -6,22 +6,28 @@ pkgdesc="Desktop wallet for the dvt blockchain"
 arch=('x86_64')
 license=('MIT')
 url="https://github.com/devaultcrypto/"
-source=("https://github.com/devaultcrypto/devault/archive/v$pkgver.tar.gz")
-depends=('boost-libs' 'qt5-base' 'qrencode' 'zeromq' 'miniupnpc' "hicolor-icon-theme" 'libevent')
+source=(${pkgname}-${pkgver}::https://github.com/devaultcrypto/devault/archive/v$pkgver.tar.gz)
+depends=('boost-libs' 'qt5-base' 'qrencode' 'zeromq' 'miniupnpc' \
+"hicolor-icon-theme" 'libevent')
 makedepends=('python' 'boost')
-build() {
-  cd "$srcdir/$pkgname-$pkgver"
+prepare() {
+ cd "$srcdir/$pkgname-$pkgver"
   ./autogen.sh
-  ./configure --prefix=/usr/
-  make
+}
+build() {
+ cd "$srcdir/$pkgname-$pkgver"
+ ./configure --prefix=/usr/
+ make
  }
 package() {
   cd "$srcdir/$pkgname-$pkgver"
   make DESTDIR="$pkgdir/" install
-  install -d "$pkgdir/usr/share/applications" "$pkgdir/usr/share/icons/hicolor/128x128/apps" \
-  "$pkgdir/usr/share/licenses/$pkgname"
-  install "$srcdir/$pkgname-$pkgver/contrib/debian/devault-qt.desktop" "$pkgdir/usr/share/applications/"
-  install "$srcdir/$pkgname-$pkgver/share/pixmaps/devault-128.png" "$pkgdir/usr/share/icons/hicolor/128x128/apps/"
-  install -m644 COPYING  "${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
+#  install -d "$pkgdir/usr/share/applications" \
+#  "$pkgdir/usr/share/icons/hicolor/128x128/apps" \
+#  "$pkgdir/usr/share/licenses/$pkgname"
+  install -D "$srcdir/$pkgname-$pkgver/contrib/debian/devault-qt.desktop" \
+  "$pkgdir/usr/share/applications/"
+  install -D "$srcdir/$pkgname-$pkgver/share/pixmaps/devault-128.png"  "$pkgdir/usr/share/icons/hicolor/128x128/apps/"
+  install -Dm644 COPYING  "${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
  }
 md5sums=('9ca9b2a3b0e0aeafdb5f974c2004ccac')
