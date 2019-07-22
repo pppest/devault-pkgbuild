@@ -11,15 +11,19 @@ https://github.com/devaultcrypto/devault/archive/v${pkgver}.tar.gz)
 depends=('boost-libs' 'qt5-base' 'qrencode' 'zeromq' 'miniupnpc' \
 'hicolor-icon-theme' 'libevent')
 makedepends=('python' 'boost')
+md5sums=('9ca9b2a3b0e0aeafdb5f974c2004ccac')
+
 prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   ./autogen.sh
 }
+
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   ./configure --prefix=/usr/
   make
 }
+
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   make DESTDIR="${pkgdir}/" install
@@ -33,4 +37,4 @@ package() {
   "${pkgdir}/usr/share/icons/hicolor/128x128/apps/"
   install -D -m644 COPYING  "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
-md5sums=('dcf27a4dc78901f4eb8e7c503b8876ce')
+
