@@ -6,16 +6,15 @@ pkgdesc="Desktop wallet for the dvt blockchain"
 arch=('x86_64')
 license=('MIT')
 url="https://github.com/devaultcrypto/"
-source=("https://github.com/devaultcrypto/devault/archive/v1.0.5.tar.gz"
-       )
-depends=('boost-libs' 'qt5-base' 'qrencode' 'libevent' 'zeromq' 'miniupnpc' "hicolor-icon-theme")
-makedepends=('python' 'libevent' 'git' 'boost' 'libsodium' ) 
+source=("https://github.com/devaultcrypto/devault/archive/v$pkgver.tar.gz")
+depends=('boost-libs' 'qt5-base' 'qrencode' 'zeromq' 'miniupnpc' "hicolor-icon-theme" 'libevent')
+makedepends=('python' 'boost')
 build() {
-	cd "$srcdir/$pkgname-$pkgver"
-	./autogen.sh
-	./configure --prefix=/usr/ 
-	make -j4
-}
+ cd "$srcdir/$pkgname-$pkgver"
+  ./autogen.sh
+  ./configure --prefix=/usr/
+  make -j4
+ }
 package() {
   cd "$srcdir/$pkgname-$pkgver"
   make DESTDIR="$pkgdir/" install
@@ -24,5 +23,5 @@ package() {
   cp "$srcdir/$pkgname-$pkgver/contrib/debian/devault-qt.desktop" "$pkgdir/usr/share/applications/"
   cp "$srcdir/$pkgname-$pkgver/share/pixmaps/devault-128.png" "$pkgdir/usr/share/icons/hicolor/128x128/apps/"
   install -m644 COPYING  "${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
-}
+ }
 md5sums=('9ca9b2a3b0e0aeafdb5f974c2004ccac')
