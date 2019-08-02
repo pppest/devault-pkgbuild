@@ -1,6 +1,6 @@
 # Maintainer: Pest <ppest@protonmail.com>
 pkgname=devault
-pkgver=1.0.5
+pkgver=1.0.6
 pkgrel=1
 pkgdesc="Desktop wallet for the dvt blockchain"
 arch=('x86_64')
