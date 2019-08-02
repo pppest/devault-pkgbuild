@@ -10,7 +10,7 @@ source=(${pkgname}-${pkgver}::\
 https://github.com/devaultcrypto/devault/archive/v${pkgver}.tar.gz)
 depends=('boost-libs' 'qt5-base' 'qrencode' 'zeromq' 'miniupnpc' 'hicolor-icon-theme' 'libevent')
 makedepends=('python' 'boost')
-md5sums=('9ca9b2a3b0e0aeafdb5f974c2004ccac')
+md5sums=('e53cd0cf5e310805291376e4d400ddb6')
 
 prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}"
